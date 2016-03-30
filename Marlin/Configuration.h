@@ -257,10 +257,15 @@
   //#define  DEFAULT_Ki 2.25
   //#define  DEFAULT_Kd 440
 
-  // drj 03/23/16
-  #define  DEFAULT_Kp 12.75
-  #define  DEFAULT_Ki 0.74
-  #define  DEFAULT_Kd 54.76
+  // drj 03/23/16 - 204 C with fans on
+  //#define  DEFAULT_Kp 12.75
+  //#define  DEFAULT_Ki 0.74
+  //#define  DEFAULT_Kd 54.76
+
+  // drj 03/30/16 - 236 C with fans on
+  #define  DEFAULT_Kp 19.56
+  #define  DEFAULT_Ki 3.37
+  #define  DEFAULT_Kd 28.36
 
 #endif // PIDTEMP
 
