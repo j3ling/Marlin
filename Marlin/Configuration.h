@@ -311,10 +311,15 @@
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 
-  // drj 03/23/16
-  #define  DEFAULT_bedKp 213.12
-  #define  DEFAULT_bedKi 40.91
-  #define  DEFAULT_bedKd 277.59
+  // drj 03/23/16 - fans on
+  //#define  DEFAULT_bedKp 213.12
+  //#define  DEFAULT_bedKi 40.91
+  //#define  DEFAULT_bedKd 277.59
+
+  // drj 03/30/16 - fans off
+  //#define  DEFAULT_bedKp 94.02
+  //#define  DEFAULT_bedKi 17.39
+  //#define  DEFAULT_bedKd 127.12
 
 #endif // PIDTEMPBED
 
@@ -571,7 +576,7 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 
     // Set the number of grid points per dimension.
     // You probably don't need more than 3 (squared=9).
-    #define AUTO_BED_LEVELING_GRID_POINTS 3
+    #define AUTO_BED_LEVELING_GRID_POINTS 2
 
   #else  // !AUTO_BED_LEVELING_GRID
 
