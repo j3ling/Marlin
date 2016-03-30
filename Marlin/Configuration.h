@@ -228,7 +228,7 @@
 
 // Comment the following line to disable PID and enable bang-bang.
 #define PIDTEMP
-#define BANG_MAX 200 // limits current to nozzle while in bang-bang mode; 255=full current
+#define BANG_MAX 225 // limits current to nozzle while in bang-bang mode; 255=full current
 #define PID_MAX BANG_MAX // limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #if ENABLED(PIDTEMP)
   //#define PID_DEBUG // Sends debug data to the serial port.
@@ -263,9 +263,9 @@
   //#define  DEFAULT_Kd 54.76
 
   // drj 03/30/16 - 236 C with fans on
-  #define  DEFAULT_Kp 19.56
-  #define  DEFAULT_Ki 3.37
-  #define  DEFAULT_Kd 28.36
+  #define  DEFAULT_Kp 24.31
+  #define  DEFAULT_Ki 4.19
+  #define  DEFAULT_Kd 35.26
 
 #endif // PIDTEMP
 
@@ -281,7 +281,7 @@
 // If your configuration is significantly different than this and you don't understand the issues involved, you probably
 // shouldn't use bed PID until someone else verifies your hardware works.
 // If this is enabled, find your own PID constants below.
-//#define PIDTEMPBED
+#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -317,9 +317,9 @@
   //#define  DEFAULT_bedKd 277.59
 
   // drj 03/30/16 - fans off
-  //#define  DEFAULT_bedKp 94.02
-  //#define  DEFAULT_bedKi 17.39
-  //#define  DEFAULT_bedKd 127.12
+  #define  DEFAULT_bedKp 94.02
+  #define  DEFAULT_bedKi 17.39
+  #define  DEFAULT_bedKd 127.12
 
 #endif // PIDTEMPBED
 
