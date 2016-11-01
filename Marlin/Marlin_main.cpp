@@ -5647,10 +5647,10 @@ inline void gcode_M226() {
           pattern.part[0] = code_value_byte();
         }
         if (code_seen('T')) {
-          timer = (long)code_value_byte();
+          timer = code_value_long();
         }
         if (code_seen('C')) {
-          control = code_value_byte();
+          control = code_value_int();
         }
         if (code_seen('R')) {
           pattern.part[1] = code_value_byte();
