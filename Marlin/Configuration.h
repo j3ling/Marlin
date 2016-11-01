@@ -121,12 +121,12 @@
 // The following define selects which electronics board you have.
 // Please choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_RAMPS_14_EFB
+  #define MOTHERBOARD BOARD_RAMBO
 #endif
 
 // Optional custom name for your RepStrap or other custom machine
 // Displayed in the LCD "Ready" message
-//#define CUSTOM_MACHINE_NAME "3D Printer"
+#define CUSTOM_MACHINE_NAME "MM3"
 
 // Define this to set a unique identifier for this printer, (Used by some programs to differentiate between machines)
 // You can use an online service to generate a random UUID. (eg http://www.uuidgenerator.net/version4)
@@ -225,11 +225,11 @@
 //#define DUMMY_THERMISTOR_998_VALUE 25
 //#define DUMMY_THERMISTOR_999_VALUE 100
 // :{ '0': "Not used",'1':"100k / 4.7k - EPCOS",'2':"200k / 4.7k - ATC Semitec 204GT-2",'3':"Mendel-parts / 4.7k",'4':"10k !! do not use for a hotend. Bad resolution at high temp. !!",'5':"100K / 4.7k - ATC Semitec 104GT-2 (Used in ParCan & J-Head)",'6':"100k / 4.7k EPCOS - Not as accurate as Table 1",'7':"100k / 4.7k Honeywell 135-104LAG-J01",'8':"100k / 4.7k 0603 SMD Vishay NTCS0603E3104FXT",'9':"100k / 4.7k GE Sensing AL03006-58.2K-97-G1",'10':"100k / 4.7k RS 198-961",'11':"100k / 4.7k beta 3950 1%",'12':"100k / 4.7k 0603 SMD Vishay NTCS0603E3104FXT (calibrated for Makibox hot bed)",'13':"100k Hisens 3950  1% up to 300°C for hotend 'Simple ONE ' & hotend 'All In ONE'",'20':"PT100 (Ultimainboard V2.x)",'51':"100k / 1k - EPCOS",'52':"200k / 1k - ATC Semitec 204GT-2",'55':"100k / 1k - ATC Semitec 104GT-2 (Used in ParCan & J-Head)",'60':"100k Maker's Tool Works Kapton Bed Thermistor beta=3950",'66':"Dyze Design 4.7M High Temperature thermistor",'70':"the 100K thermistor found in the bq Hephestos 2",'71':"100k / 4.7k Honeywell 135-104LAF-J01",'147':"Pt100 / 4.7k",'1047':"Pt1000 / 4.7k",'110':"Pt100 / 1k (non-standard)",'1010':"Pt1000 / 1k (non standard)",'-3':"Thermocouple + MAX31855 (only for sensor 0)",'-2':"Thermocouple + MAX6675 (only for sensor 0)",'-1':"Thermocouple + AD595",'998':"Dummy 1",'999':"Dummy 2" }
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 5
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
-#define TEMP_SENSOR_BED 0
+#define TEMP_SENSOR_BED 60
 
 // This makes temp sensor 1 a redundant sensor for sensor 0. If the temperatures difference between these sensors is to high the print will be aborted.
 //#define TEMP_SENSOR_1_AS_REDUNDANT
@@ -270,7 +270,7 @@
 
 // Comment the following line to disable PID and enable bang-bang.
 #define PIDTEMP
-#define BANG_MAX 255 // limits current to nozzle while in bang-bang mode; 255=full current
+#define BANG_MAX 225 // limits current to nozzle while in bang-bang mode; 255=full current
 #define PID_MAX BANG_MAX // limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #if ENABLED(PIDTEMP)
   //#define PID_AUTOTUNE_MENU // Add PID Autotune to the LCD "Temperature" menu to run M303 and apply the result.
@@ -286,9 +286,9 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
   // Ultimaker
-  #define  DEFAULT_Kp 22.2
-  #define  DEFAULT_Ki 1.08
-  #define  DEFAULT_Kd 114
+  //#define  DEFAULT_Kp 22.2
+  //#define  DEFAULT_Ki 1.08
+  //#define  DEFAULT_Kd 114
 
   // MakerGear
   //#define  DEFAULT_Kp 7.0
@@ -299,6 +299,11 @@
   //#define  DEFAULT_Kp 63.0
   //#define  DEFAULT_Ki 2.25
   //#define  DEFAULT_Kd 440
+
+ // Mendelmax 3 24V 
+  #define  DEFAULT_Kp 18.82
+  #define  DEFAULT_Ki 1.47
+  #define  DEFAULT_Kd 60.12
 
 #endif // PIDTEMP
 
@@ -314,7 +319,7 @@
 // If your configuration is significantly different than this and you don't understand the issues involved, you probably
 // shouldn't use bed PID until someone else verifies your hardware works.
 // If this is enabled, find your own PID constants below.
-//#define PIDTEMPBED
+#define PIDTEMPBED
 
 //#define BED_LIMIT_SWITCHING
 
@@ -423,9 +428,9 @@
 #define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Z_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+#define X_MAX_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
+#define Y_MAX_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
+#define Z_MAX_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
 #define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 
 //===========================================================================
@@ -575,7 +580,7 @@
 // @section machine
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-#define INVERT_X_DIR false
+#define INVERT_X_DIR true
 #define INVERT_Y_DIR true
 #define INVERT_Z_DIR false
 
@@ -608,9 +613,9 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 200
-#define Y_MAX_POS 200
-#define Z_MAX_POS 200
+#define X_MAX_POS 238
+#define Y_MAX_POS 310
+#define Z_MAX_POS 195
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -749,16 +754,17 @@
 
 // default settings
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,4000,500}  // default steps per unit for Ultimaker
-#define DEFAULT_MAX_FEEDRATE          {300, 300, 5, 25}    // (mm/sec)
-#define DEFAULT_MAX_ACCELERATION      {3000,3000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,4000,500}  // default steps per unit for Ultimaker
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,800,99}  // default steps per unit for MM3
+#define DEFAULT_MAX_FEEDRATE          {500, 500, 15, 30}    // (mm/sec)
+#define DEFAULT_MAX_ACCELERATION      {1100,1100,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
-#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration in mm/s^2 for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration in mm/s^2 for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration in mm/s^2 for travel (non printing) moves
+#define DEFAULT_ACCELERATION          1100    // X, Y, Z and E acceleration in mm/s^2 for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  1100    // E acceleration in mm/s^2 for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration in mm/s^2 for travel (non printing) moves
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
-#define DEFAULT_XYJERK                20.0    // (mm/sec)
+#define DEFAULT_XYJERK                15.0    // (mm/sec)
 #define DEFAULT_ZJERK                 0.4     // (mm/sec)
 #define DEFAULT_EJERK                 5.0    // (mm/sec)
 
@@ -811,11 +817,11 @@
 // @section temperature
 
 // Preheat Constants
-#define PREHEAT_1_TEMP_HOTEND 180
-#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_TEMP_HOTEND 190
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_2_TEMP_HOTEND 240
+#define PREHEAT_2_TEMP_HOTEND 230
 #define PREHEAT_2_TEMP_BED    110
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
@@ -981,7 +987,7 @@
 // SD Card support is disabled by default. If your controller has an SD slot,
 // you must uncomment the following option or it won't work.
 //
-//#define SDSUPPORT
+#define SDSUPPORT
 
 //
 // SD CARD: SPI SPEED
@@ -1139,7 +1145,7 @@
 // RepRapDiscount FULL GRAPHIC Smart Controller
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
-//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
 //
 // MakerLab Mini Panel with graphic
@@ -1323,5 +1329,72 @@
   //When using an LCD, uncomment the line below to display the Filament sensor data on the last line instead of status.  Status will appear for 5 sec.
   //#define FILAMENT_LCD_DISPLAY
 #endif
+
+/*********************************************************************\
+* MTW LED I2C controller support
+* Sponsored by Makers Tool Works
+**********************************************************************/
+#define MTWLED  // uncomment if using Makers Tool Works LED controller
+#ifdef MTWLED
+
+// patterns
+//                       pattern ID,red,green,blue
+#define mtwled_ready		10,0,30,0	// Marlin Ready
+#define mtwled_startup		10,30,30,30     // Marlin startup
+#define mtwled_temphit  	14,40,40,40      // Hotend is at target temp
+#define mtwled_templow		10,0,40,0       // Hotend heater is slightly lower than target temp
+#define mtwled_temphigh  	10,40,0,0	// Hotend heater is slightly higher than target temp
+#define mtwled_heateroff	11,0,0,40	// Hotend heater is off but still hot
+
+// option switches
+#define MTWLED_cool 35                          // The temp at which the hotend is considered cooled down and safe
+#define MTWLED_swing 4                          // how far off before the temperature is not considered 'at temp' in degrees C
+#define MTWLED_heatmode 2                       // animation type for heat=up pattern: 0=solid color 1=chasing 2=wipe 3=scanner
+#define MTWLED_printmode 0                      // animation type during printing: 0=templow/temphit/temphigh 1=XYZ position
+#define MTWLED_endstoptimer 5                   // how many seconds to display endstop status
+//#define MTWLED_disableheatup                  // uncomment to disable the percentile display as hotend heats up
+#endif
+/*
+A pattern code is 4 bytes of data: the pattern ID plus one byte each for red, green, blue color values.
+A simple way to experiment to find color values you like is to use the M242 command, the serial console
+will display the individual values when it executes a M242 command. You can experiment with patterns and
+RGB color values, then use a code returned by M242 for any default above. The M242 command has these parameters:
+M242 P<pattern ID> R<red> E<green> B<blue> T<timer> C<command>
+   pattern ID is the number of the pattern/animation to use
+   R is a value from 0-127 for how red the color will be
+   E is a value from 0-127 for how green the color will be
+   B is a value from 0-127 for how blue the color will be
+      Specifying colors is often optional, any color not given will be either 0 (none) or a default
+      depending on the pattern selected.
+   T is a timer in seconds for how long the pattern will override the default patterns from marlin
+      If marlin events are enabled, the LEDs will resume automatic changed when the time has elapsed
+   C is a command that affects LED options, such as what events marlin sends automatically or display endstop status
+      C0 will enable all marlin LED events
+      C1 will disable general status events (ready, holding temp, etc.)
+      C2 will display endstop status
+      C252 toggles between printmodes
+      C254 toggles serial debug output
+      C255 will disable all marlin LED events
+      The C command parameter is usually used by itself without specifying a pattern ID.
+   Examples:
+      M242 C1          Disable marlin's status events (handy to prevent it overriding while testing)
+      M242 P10 B40     Sets pattern 10 (solid color) blue
+      M242 P10 B50 R50 Sets pattern 10 (solid color) purple
+      M242 P11 R50 T10 Sets a scanning pattern (cylon/KITT) red for at least 10 seconds
+      M242 P13 E40 T10 Sets a chasing pattern green for at least 10 seconds
+   Current pattern IDs are:
+      10 RGB	Solid color
+      11 RGB 	Cylon
+      12 RGB 	UFO PULSE
+      13 XXX 	Color Chase
+      14 XXX 	Color Cycle
+      15 RGB 	Color Chase Single Led
+      16 RGB 	Slow fill then solid
+      17 RGB	Repeating Blink
+      
+NOTES:
+  Make sure the logic for any endstops that are not installed defaults to untriggered, or disable the endstop pins. Otherwise the
+  LED endstop status may override other events.
+*/
 
 #endif // CONFIGURATION_H
