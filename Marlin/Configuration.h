@@ -300,10 +300,10 @@
   //#define  DEFAULT_Ki 2.25
   //#define  DEFAULT_Kd 440
 
- // Mendelmax 3 24V - 200 celsius, drj 11/01/16
-  #define  DEFAULT_Kp 32.38
-  #define  DEFAULT_Ki 4.71
-  #define  DEFAULT_Kd 55.70
+ // Mendelmax 3 24V - 200 celsius, drj 11/03/16
+  #define  DEFAULT_Kp 30.05
+  #define  DEFAULT_Ki 4.02
+  #define  DEFAULT_Kd 56.13
 
 #endif // PIDTEMP
 
