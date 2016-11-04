@@ -300,10 +300,10 @@
   //#define  DEFAULT_Ki 2.25
   //#define  DEFAULT_Kd 440
 
-  // drj 04/14/16 - 236 C with fans on - PID current 245
-  #define  DEFAULT_Kp 32.05
-  #define  DEFAULT_Ki 5.62
-  #define  DEFAULT_Kd 45.69
+  // drj 11/04/16 - 200 C with fans off - PID current 245
+  #define  DEFAULT_Kp 44.93
+  #define  DEFAULT_Ki 8.04
+  #define  DEFAULT_Kd 62.77
 
 #endif // PIDTEMP
 
@@ -347,10 +347,10 @@
   //#define  DEFAULT_bedKi 1.41
   //#define  DEFAULT_bedKd 1675.16
 
-  // drj 03/30/16 - fans off
-  #define  DEFAULT_bedKp 94.02
-  #define  DEFAULT_bedKi 17.39
-  #define  DEFAULT_bedKd 127.12
+  // drj 11/04/16 - fans off
+  #define  DEFAULT_bedKp 81.49
+  #define  DEFAULT_bedKi 14.29
+  #define  DEFAULT_bedKd 116.15
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -548,13 +548,13 @@
 //#define DISABLE_Z_MIN_PROBE_ENDSTOP
 
 // Enable Z Probe Repeatability test to see how accurate your probe is
-//#define Z_MIN_PROBE_REPEATABILITY_TEST
+#define Z_MIN_PROBE_REPEATABILITY_TEST
 
 //
 // Probe Raise options provide clearance for the probe to deploy, stow, and travel.
 //
-#define Z_PROBE_DEPLOY_HEIGHT 15 // Raise to make room for the probe to deploy / stow
-#define Z_PROBE_TRAVEL_HEIGHT 5  // Raise between probing points.
+#define Z_PROBE_DEPLOY_HEIGHT 0 // Raise to make room for the probe to deploy / stow
+#define Z_PROBE_TRAVEL_HEIGHT 20  // Raise between probing points.
 
 //
 // For M851 give a range for adjusting the Z probe offset
@@ -1140,7 +1140,7 @@
 //
 // Note: Usually sold with a white PCB.
 //
-#define REPRAP_DISCOUNT_SMART_CONTROLLER
+//#define REPRAP_DISCOUNT_SMART_CONTROLLER
 
 //
 // GADGETS3D G3D LCD/SD Controller
@@ -1154,7 +1154,7 @@
 // RepRapDiscount FULL GRAPHIC Smart Controller
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
-//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
 //
 // MakerLab Mini Panel with graphic
