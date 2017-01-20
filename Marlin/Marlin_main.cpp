@@ -233,6 +233,11 @@
 #include "duration_t.h"
 #include "types.h"
 
+#ifdef MTWLED
+  #include "mtwled.h"
+  extern int MTWLED_control;
+#endif
+
 #if HAS_ABL
   #include "vector_3.h"
   #if ENABLED(AUTO_BED_LEVELING_LINEAR)
@@ -6511,6 +6516,40 @@ inline void gcode_M226() {
   } // code_seen('P')
 }
 
+/**
+ * M242: control for the Makers Tool Works LED controller. See mtwled.h for detail
+ */
+#ifdef MTWLED
+    inline void gcode_M242() {
+        patterncode pattern;
+        pattern.part[0] = 0;
+        long timer = 0;
+        int control = MTWLED_control;
+        pattern.part[1] = 0;
+        pattern.part[2] = 0;
+        pattern.part[3] = 0;
+        if (code_seen('P')) {
+          pattern.part[0] = code_value_byte();
+        }
+        if (code_seen('T')) {
+          timer = (long)code_value_byte();
+        }
+        if (code_seen('C')) {
+          control = code_value_byte();
+        }
+        if (code_seen('R')) {
+          pattern.part[1] = code_value_byte();
+        }
+        if (code_seen('E')) {
+          pattern.part[2] = code_value_byte();
+        }
+        if (code_seen('B')) {
+          pattern.part[3] = code_value_byte();
+        }
+        MTWLEDUpdate(pattern,timer,control);
+      }
+#endif
+
 #if ENABLED(EXPERIMENTAL_I2CBUS)
 
   /**
@@ -10198,6 +10237,10 @@ void setup() {
   setup_killpin();
 
   setup_powerhold();
+  
+  #ifdef MTWLED
+    MTWLEDSetup();
+  #endif
 
   #if HAS_STEPPER_RESET
     disableStepperDrivers();
@@ -10346,6 +10389,10 @@ void setup() {
  */
 void loop() {
   if (commands_in_queue < BUFSIZE) get_available_commands();
+  
+  #ifdef MTWLED
+    MTWLEDLogic();
+  #endif
 
   #if ENABLED(SDSUPPORT)
     card.checkautostart(false);
