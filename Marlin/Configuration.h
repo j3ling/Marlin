@@ -330,10 +330,10 @@
   //#define  DEFAULT_Ki 2.25
   //#define  DEFAULT_Kd 440
   
-   // Mendelmax 3 24V - 200 celsius, drj 11/03/16
-  #define  DEFAULT_Kp 30.05
-  #define  DEFAULT_Ki 4.02
-  #define  DEFAULT_Kd 56.13
+   // Mendelmax 3 24V - 210 celsius, current 255, drj 01/20/17
+  #define  DEFAULT_Kp 31.94
+  #define  DEFAULT_Ki 4.51
+  #define  DEFAULT_Kd 56.51
 
 #endif // PIDTEMP
 
@@ -375,10 +375,10 @@
   //#define  DEFAULT_bedKi 1.41
   //#define  DEFAULT_bedKd 1675.16
   
-    // drj 11/01/16 - 60 celsius
-    #define  DEFAULT_bedKp 87.24
-    #define  DEFAULT_bedKi 4.53
-    #define  DEFAULT_bedKd 420.24
+    // drj 01/20/17 - 60 celsius, fans on
+    #define  DEFAULT_bedKp 65.70
+    #define  DEFAULT_bedKi 3.15
+    #define  DEFAULT_bedKd 342.30
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
