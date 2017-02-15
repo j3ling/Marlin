@@ -122,7 +122,8 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000]
  */
-#define BAUDRATE 250000
+//#define BAUDRATE 250000
+#define BAUDRATE 115200
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
@@ -512,6 +513,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3]]]
  */
 #define DEFAULT_MAX_ACCELERATION      { 1100, 1100, 80, 10000 }
+//#define DEFAULT_MAX_ACCELERATION      { 500, 500, 80, 10000 }      // for lin_advance calibration
 
 /**
  * Default Acceleration (change/s) change = mm/s
