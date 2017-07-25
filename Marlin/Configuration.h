@@ -352,9 +352,14 @@
   //#define  DEFAULT_Kd 440
 
   // drj 04/14/16 - 236 C with fans on - PID current 245
-  #define  DEFAULT_Kp 32.05
-  #define  DEFAULT_Ki 5.62
-  #define DEFAULT_Kd 45.69
+  //#define  DEFAULT_Kp 32.05
+  //#define  DEFAULT_Ki 5.62
+  //#define DEFAULT_Kd 45.69
+
+  // drj 07/25/17 - 238 C with fans on - PID current 255
+  #define  DEFAULT_Kp 19.56
+  #define  DEFAULT_Ki 3.73
+  #define DEFAULT_Kd 25.63
 
 #endif // PIDTEMP
 
@@ -397,10 +402,15 @@
   //#define  DEFAULT_bedKd 1675.16
 
 
-  // drj 03/30/16 - fans off
-  #define  DEFAULT_bedKp 94.02
-  #define  DEFAULT_bedKi 17.39
-  #define DEFAULT_bedKd 127.12
+  // drj 03/30/16 - fans off - 60 celsius (?)
+  //#define  DEFAULT_bedKp 94.02
+  //#define  DEFAULT_bedKi 17.39
+  //#define DEFAULT_bedKd 127.12
+
+  // drj 07/25/17 - fans off - 90 celsius
+  #define  DEFAULT_bedKp 93.25
+  #define  DEFAULT_bedKi 14.22
+  #define DEFAULT_bedKd 152.82
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
