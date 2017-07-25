@@ -47,6 +47,10 @@
   #include "watchdog.h"
 #endif
 
+#ifdef MTWLED
+  #include "mtwled.h"
+#endif
+
 #ifdef K1 // Defined in Configuration.h in the PID settings
   #define K2 (1.0-K1)
 #endif
@@ -759,6 +763,12 @@ void Temperature::manage_heater() {
     #endif
 
   } // HOTEND_LOOP
+
+  #ifdef MTWLED
+    #ifndef MTWLED_disableheatup
+      MTWLEDTemp();
+    #endif
+  #endif
 
   #if HAS_AUTO_FAN
     if (ELAPSED(ms, next_auto_fan_check_ms)) { // only need to check fan state very infrequently
