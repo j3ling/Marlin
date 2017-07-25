@@ -569,10 +569,11 @@
  */
 
  // L ~ 7mm => K ~ 33
-#define LIN_ADVANCE
+ // K=37 PLA/MM3 => L = 7.87
+//#define LIN_ADVANCE
 
 #if ENABLED(LIN_ADVANCE)
-  #define LIN_ADVANCE_K 36      // MTW PLA gold (old)
+  #define LIN_ADVANCE_K 37      // MTW PLA gold (old)
 #endif
 
 // @section leveling
